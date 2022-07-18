@@ -6,6 +6,8 @@ const cors = require("cors");
 const errorMiddleWare = require("./middlewares/error");
 const notFoundMiddleWare = require("./middlewares/notFound");
 
+const authRoute = require("./routes/authRoute");
+
 const app = express();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -13,6 +15,8 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/auth", authRoute);
 
 app.use(errorMiddleWare);
 app.use(notFoundMiddleWare);
