@@ -22,7 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
-      amount: DataTypes.DECIMAL,
+      totalIncome: DataTypes.DECIMAL,
+      totalExpense: DataTypes.DECIMAL,
+      totalAmount: DataTypes.DECIMAL,
     },
     {
       sequelize,

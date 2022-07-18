@@ -20,11 +20,23 @@ module.exports = (sequelize, DataTypes) => {
   }
   Transaction.init(
     {
-      type: DataTypes.ENUM("income", "expense"),
-      category: DataTypes.STRING,
-      amount: DataTypes.DECIMAL,
+      type: {
+        type: DataTypes.ENUM("income", "expense"),
+        allowNull: false,
+      },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      amount: {
+        type: DataTypes.DECIMAL,
+        allowNull: false,
+      },
       note: DataTypes.STRING,
-      date: DataTypes.DATEONLY,
+      date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
     },
     {
       sequelize,

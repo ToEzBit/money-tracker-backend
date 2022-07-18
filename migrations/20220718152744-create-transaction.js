@@ -20,18 +20,22 @@ module.exports = {
       },
       type: {
         type: Sequelize.ENUM("income", "expense"),
+        allowNull: false,
       },
       category: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       amount: {
         type: Sequelize.DECIMAL,
+        allowNull: false,
       },
       note: {
         type: Sequelize.STRING,
       },
       date: {
         type: Sequelize.DATEONLY,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
