@@ -52,3 +52,17 @@ exports.login = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getMe = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    const user = await User.findByPk(id, {
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt"],
+      },
+    });
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+};
